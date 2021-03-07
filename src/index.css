@@ -49,15 +49,15 @@ code {
 }
 
 .appbar {
-  width: 100%;
+  width: calc(100% - 20px);
   padding: 10px;
-  padding-left: 30px;
   height: 50px;
   display: flex;
   background-color: #ffffff;
 }
 
 .appbar img {
+  padding-left: 30px;
   height: 100%;
 }
 
