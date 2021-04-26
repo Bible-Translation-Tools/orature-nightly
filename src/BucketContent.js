@@ -43,7 +43,7 @@ class BucketContent {
     getOratureProjects = (json) => {
         let oratureProjects = []
         json.forEach((obj) => {
-            if (obj["Key"].includes("Bible-Translation-Tools/otter/")) {
+            if (obj["Key"].includes("Bible-Translation-Tools/Orature/")) {
                 oratureProjects.push(obj)
             }
         })
@@ -53,7 +53,7 @@ class BucketContent {
     getProjectsByBranch = (projects) => {
         let out = {}
         let branches = []
-        const pattern = /Bible-Translation-Tools\/otter\/([a-zA-Z0-9-]*)\/.*/
+        const pattern = /Bible-Translation-Tools\/Orature\/([a-zA-Z0-9-]*)\/.*/
         const installable = /[\.deb|\.exe|\.dmg]$/
         projects.forEach((project) => {
             const found = project["Key"].match(pattern)
@@ -75,7 +75,7 @@ class BucketContent {
     }
 
     getLatestBuild = (branchName, builds) => {
-        const pattern = /Bible-Translation-Tools\/otter\/[a-zA-Z0-9-]*\/(\d*)\/.*/
+        const pattern = /Bible-Translation-Tools\/Orature\/[a-zA-Z0-9-]*\/(\d*)\/.*/
         let numbers = []
         builds.forEach((build) => {
             if (pattern.test(build)) {
@@ -88,7 +88,7 @@ class BucketContent {
     }
 
     removeExcess = (urls, branchName, latestBuild) => {
-        const pattern = RegExp('Bible-Translation-Tools\/otter\/'+branchName+'\/'+latestBuild+'\/.*')
+        const pattern = RegExp('Bible-Translation-Tools\/Orature\/'+branchName+'\/'+latestBuild+'\/.*')
         return urls.filter( url => pattern.test(url) )
     }
 }
